@@ -1,0 +1,11 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg, #0B0B0B, #121212);
+  color: whitesmoke;
+  font-family: 'Poppins', sans-serif;
+}

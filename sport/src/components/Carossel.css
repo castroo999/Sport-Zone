@@ -1,0 +1,33 @@
+.carrossel {
+  width: 90%;
+  margin: 100px auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.grupo {
+  display: flex;
+  gap: 10px;
+  animation: giro 18s linear infinite;
+  width: calc(6 * 5rem + 5 * 10px);
+  box-shadow: 0 0 10px #9C4DFF30;
+}
+
+.card {
+  flex: 0 0 150px;     
+  height: 150px;       
+  border-radius: 10px;
+  overflow: hidden;    
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   
+  display: block;
+}
+
+@keyframes giro {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

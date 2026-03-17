@@ -1,0 +1,50 @@
+.header {
+    width: 100%;
+    height: auto;
+    padding: 15px 40px;
+    background: linear-gradient(90deg, #6A1B9A, #3F51B5);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 200px;
+
+}
+
+.header h2 {
+    justify-content: center;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: end;
+}
+
+.conteudo input {
+    padding: 8px 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background: #1A1A1A;
+    color: #fff;
+    border: 1px solid #333;
+}
+
+input:focus {
+    border: 1px solid #9C4DFF;
+    box-shadow: 0 0 8px #9C4DFF50;
+}
