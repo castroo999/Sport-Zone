@@ -1,4 +1,14 @@
 body{
   font-family: 'Poppins', sans-serif;
-  
+  background: linear-gradient(to bottom, #000, #111);
 }
+
+.lista-cards {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 60px auto;
+  width: 90%;
+}
+
