@@ -2,7 +2,7 @@
 import './CardLoja.css'
 import {ShoppingCart} from 'lucide-react'
 
-export default function Cards({title, category, banner, onClick}){
+export default function Cards({title, price, category, banner, onClick}){
     return(
         <div className="card-loja" onClick={onClick}>
             <div className="img-box">
@@ -11,6 +11,7 @@ export default function Cards({title, category, banner, onClick}){
                 <div className="card-info">
                     <h4>{title}</h4>
                     <p>{category}</p>
+                    <p>{price}</p>
                     <button className='play-button'>
                         <ShoppingCart size={14}/>
                     </button>

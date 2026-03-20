@@ -1,14 +1,28 @@
 body{
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom, #000, #111);
+  background: radial-gradient(circle at top, #1a1a1a, #000);
 }
 
 .lista-cards {
   display: flex;
-  gap: 25px;
+  gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 30px auto;
+}
+
+h1 {
+  margin-top: 60px;
+}
+
+.secao {
   margin: 60px auto;
   width: 90%;
 }
 
+.secao h2 {
+  color: white;
+  margin-bottom: 20px;
+  border-left: 4px solid #9C4DFF;
+  padding-left: 10px;
+}
