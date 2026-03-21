@@ -1,0 +1,16 @@
+.marcas {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.marcas img {
+  width: 200px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.marcas img:hover {
+  transform: scale(1.1);
+}

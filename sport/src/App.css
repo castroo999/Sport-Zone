@@ -9,6 +9,7 @@ body{
   flex-wrap: wrap;
   justify-content: center;
   margin: 30px auto;
+  
 }
 
 h1 {
@@ -25,4 +26,55 @@ h1 {
   margin-bottom: 20px;
   border-left: 4px solid #9C4DFF;
   padding-left: 10px;
+}
+
+.titulo-secao {
+  text-align: center;
+  margin-top: 40px;
+  color: white;
+}
+
+.titulo-produtos {
+  text-align: center;
+  margin-top: 40px;
+  color: white;
+}
+
+.sem-produto {
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.btn-limpar {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #9C4DFF;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-limpar:hover {
+  opacity: 0.8;
+}
+
+.app{
+  animation: aparecer 0.8s ease;
+}
+
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
