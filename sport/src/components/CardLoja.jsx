@@ -2,7 +2,7 @@
 import './CardLoja.css'
 import {ShoppingCart} from 'lucide-react'
 
-export default function Cards({title, price, category, banner, onClick}){
+export default function Cards({title, price, category, banner,onClick}){
     return(
         <div className="card-loja" onClick={onClick}>
             <div className="img-box">

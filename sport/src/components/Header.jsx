@@ -2,9 +2,11 @@ import "./Header.css";
 import { Menu, Search } from "lucide-react";
 import logo from "../assets/logo.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header({ setBusca }) {
   const [menuAberto, setMenuAberto] = useState(false);
+
   return (
     <header className="header">
       <div className="left">
@@ -13,32 +15,40 @@ export default function Header({ setBusca }) {
           className="menu-icon"
           onClick={() => setMenuAberto(!menuAberto)}
         />
+
         {menuAberto && (
           <div className={`itens-botao ${menuAberto ? "ativo" : ""}`}>
-            <a href="#" onClick={() => setMenuAberto(false)}>
+            <Link to="/" onClick={() => setMenuAberto(false)}>
               Esportes
-            </a>
-            <a href="#" onClick={() => setMenuAberto(false)}>
+            </Link>
+            <Link to="/" onClick={() => setMenuAberto(false)}>
               Acessórios
-            </a>
+            </Link>
+            <Link to="/" onClick={() => setMenuAberto(false)}>
+              Treino
+            </Link>
+            <Link to="/" onClick={() => setMenuAberto(false)}>
+              Equipamento
+            </Link>
+            <Link to="/carrinho" onClick={() => setMenuAberto(false)}>
+              Carrinho
+            </Link>
           </div>
         )}
 
         <div className="logo">
           <img src={logo} alt="logo" />
           <h2>Sport Zone</h2>
-          <br></br>
           <p>Eleve seu jogo. Supere seus limite</p>
         </div>
       </div>
 
       <nav className="nav">
-        <a href="#">Esportes</a>
-        <a href="#">Acessórios</a>
-        <a href="#">Treino</a>
-        <a href="#">Equipamentos</a>
-        <a href="#">Infantil</a>
-        
+        <Link to="/">Esportes</Link>
+        <Link to="/">Acessórios</Link>
+        <Link to="/">Treino</Link>
+        <Link to="/">Equipamentos</Link>
+        <Link to="/carrinho">Carrinho</Link>
       </nav>
 
       <div className="right">
