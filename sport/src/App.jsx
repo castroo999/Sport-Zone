@@ -3,8 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { IoIosMale } from "react-icons/io";
 import { IoMdFemale } from "react-icons/io";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+
 import Carrinho from "./pages/Carrinho";
 import Marcas from "./components/Marcas";
 import Header from "./components/Header";
@@ -16,6 +16,7 @@ import {
   catalogo_adzero,
   catalogo_nike,
   catalogo_mizuno,
+  catalogo_variados,
 } from "./data.js/node";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
     ...catalogo_adzero,
     ...catalogo_nike,
     ...catalogo_mizuno,
+    ...catalogo_variados,
   ];
 
   const [carrinho, setCarrinho] = useState(() => {
@@ -41,12 +43,24 @@ function App() {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
   }, [carrinho]);
 
-  const limparCarrinho =() =>{
-    setCarrinho([]);
-  }
+  const limparCarrinho = () => setCarrinho([]);
 
-  const adcionarAoCarrinho = (produtoSelecionado) => {
-    setCarrinho([...carrinho, produtoSelecionado]);
+  
+  const abrirProduto = (item) => {
+    setProdutoSelecionado(item);
+    setGeneroSelecionado("");
+    setTamanhoSelecionado("");
+  };
+
+  const adcionarAoCarrinho = () => {
+    const produtoFinal = {
+      ...produtoSelecionado,
+      tamanho: tamanhoSelecionado,
+      genero: generoSelecionado,
+    };
+
+    setCarrinho([...carrinho, produtoFinal]);
+    setProdutoSelecionado(null);
   };
 
   const removerItem = (id) => {
@@ -56,7 +70,7 @@ function App() {
   const filtrados = todosProdutos.filter(
     (item) =>
       item.title.toLowerCase().includes(busca.toLowerCase()) &&
-      (marcaSelecionada === "" || item.marca === marcaSelecionada),
+      (marcaSelecionada === "" || item.marca === marcaSelecionada)
   );
 
   const limparFiltros = () => {
@@ -66,6 +80,8 @@ function App() {
 
   const limparProdutos = () => {
     setProdutoSelecionado(null);
+    setTamanhoSelecionado("");
+    setGeneroSelecionado("");
   };
 
   return (
@@ -95,11 +111,8 @@ function App() {
                     filtrados.map((item) => (
                       <CardLoja
                         key={item.id}
-                        title={item.title}
-                        category={item.category}
-                        price={item.price}
-                        banner={item.banner}
-                        onClick={() => setProdutoSelecionado(item)}
+                        {...item}
+                        onClick={() => abrirProduto(item)}
                       />
                     ))
                   ) : (
@@ -111,25 +124,24 @@ function App() {
 
             {!busca && !marcaSelecionada && (
               <>
-                <h1 className="titulo">CATALOGO TENIS</h1>
+                <h1 className="titulo">CATÁLOGO</h1>
 
                 {[
-                  { titulo: "TENIS OLYMPIKUS CORRE 4", lista: catalogo_corre },
-                  { titulo: "TENIS ADIDAS", lista: catalogo_adzero },
-                  { titulo: "TENIS NIKE", lista: catalogo_nike },
-                  { titulo: "TENIS MIZUNO", lista: catalogo_mizuno },
+                  { titulo: "OLYMPIKUS", lista: catalogo_corre },
+                  { titulo: "ADIDAS", lista: catalogo_adzero },
+                  { titulo: "NIKE", lista: catalogo_nike },
+                  { titulo: "MIZUNO", lista: catalogo_mizuno },
+                  { titulo: "ACADEMIA", lista: catalogo_variados  },
                 ].map((secao, index) => (
                   <div key={index}>
                     <h1 className="titulo-produtos">{secao.titulo}</h1>
+
                     <div className="lista-cards">
                       {secao.lista.map((item) => (
                         <CardLoja
                           key={item.id}
-                          title={item.title}
-                          category={item.category}
-                          price={item.price}
-                          banner={item.banner}
-                          onClick={() => setProdutoSelecionado(item)}
+                          {...item}
+                          onClick={() => abrirProduto(item)}
                         />
                       ))}
                     </div>
@@ -138,6 +150,7 @@ function App() {
               </>
             )}
 
+            
             {produtoSelecionado && (
               <div className="overlay">
                 <div className="modal">
@@ -145,55 +158,91 @@ function App() {
                     src={produtoSelecionado.banner}
                     alt={produtoSelecionado.title}
                   />
+
                   <h2>{produtoSelecionado.title}</h2>
                   <p>{produtoSelecionado.category}</p>
                   <p>R$ {produtoSelecionado.price}</p>
 
-                  <button
-                    className={`genero ${
-                      generoSelecionado === "Feminino" ? "ativo" : ""
-                    }`}
-                    onClick={() => setGeneroSelecionado("Feminino")}
-                  >
-                    <IoMdFemale size={30} color="pink" />
-                  </button>
+                  
+                  {produtoSelecionado.category === "tenis" && (
+                    <>
+                      <div className="generos">
+                        <button
+                          className={`genero ${
+                            generoSelecionado === "Feminino" ? "ativo" : ""
+                          }`}
+                          onClick={() => setGeneroSelecionado("Feminino")}
+                        >
+                          <IoMdFemale size={30} color="pink" />
+                        </button>
 
-                  <button
-                    className={`genero2 ${
-                      generoSelecionado === "Masculino" ? "ativo" : ""
-                    }`}
-                    onClick={() => setGeneroSelecionado("Masculino")}
-                  >
-                    <IoIosMale size={30} color="blue" />
-                  </button>
+                        <button
+                          className={`genero ${
+                            generoSelecionado === "Masculino" ? "ativo" : ""
+                          }`}
+                          onClick={() => setGeneroSelecionado("Masculino")}
+                        >
+                          <IoIosMale size={30} color="blue" />
+                        </button>
+                      </div>
 
-                  <p>Selecione o tamanho</p>
+                      {!generoSelecionado && (
+                        <p style={{ color: "red" }}>
+                          Selecione um gênero
+                        </p>
+                      )}
+                    </>
+                  )}
 
-                  <div className="tamanhos">
-                    {(
-                      produtoSelecionado.tam || ["34", "35", "36", "40", "43"]
-                    ).map((tamanho) => (
-                      <button
-                        key={tamanho}
-                        onClick={() => setTamanhoSelecionado(tamanho)}
-                        className={`tamanho ${
-                          tamanhoSelecionado === tamanho ? "ativo" : ""
-                        }`}
-                      >
-                        {tamanho}
-                      </button>
-                    ))}
-                  </div>
+                  
+                  {produtoSelecionado.tam && (
+                    <>
+                      <p>Selecione o tamanho</p>
 
+                      <div className="tamanhos">
+                        {produtoSelecionado.tam.map((tamanho) => (
+                          <button
+                            key={tamanho}
+                            onClick={() =>
+                              setTamanhoSelecionado(tamanho)
+                            }
+                            className={`tamanho ${
+                              tamanhoSelecionado === tamanho
+                                ? "ativo"
+                                : ""
+                            }`}
+                          >
+                            {tamanho}
+                          </button>
+                        ))}
+                      </div>
+
+                      {!tamanhoSelecionado && (
+                        <p style={{ color: "red" }}>
+                          Selecione um tamanho
+                        </p>
+                      )}
+                    </>
+                  )}
+
+                  
                   <button
                     className="add"
-                    onClick={() => adcionarAoCarrinho(produtoSelecionado)}
+                    onClick={adcionarAoCarrinho}
+                    disabled={
+                      (produtoSelecionado.category === "tenis" &&
+                        !generoSelecionado) ||
+                      (produtoSelecionado.tam && !tamanhoSelecionado)
+                    }
                   >
                     <p>Adicionar ao carrinho</p>
                     <ShoppingCart size={14} />
                   </button>
 
-                  <button className="btn-limpar" onClick={limparProdutos}>
+                  <button
+                    className="btn-limpar"
+                    onClick={limparProdutos}
+                  >
                     Fechar
                   </button>
                 </div>
@@ -208,7 +257,11 @@ function App() {
         element={
           <div className="app">
             <Header setBusca={setBusca} />
-            <Carrinho carrinho={carrinho} removerItem={removerItem} limparCarrinho={limparCarrinho} />
+            <Carrinho
+              carrinho={carrinho}
+              removerItem={removerItem}
+              limparCarrinho={limparCarrinho}
+            />
           </div>
         }
       />

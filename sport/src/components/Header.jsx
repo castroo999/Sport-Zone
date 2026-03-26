@@ -25,10 +25,7 @@ export default function Header({ setBusca}) {
               Acessórios
             </Link>
             <Link to="/" onClick={() => setMenuAberto(false)}>
-              Treino
-            </Link>
-            <Link to="/" onClick={() => setMenuAberto(false)}>
-              Equipamento
+              Academia
             </Link>
             <Link to="/carrinho" onClick={() => setMenuAberto(false)}>
               Carrinho
@@ -48,8 +45,7 @@ export default function Header({ setBusca}) {
       <nav className="nav">
         <Link to="/">Esportes</Link>
         <Link to="/">Acessórios</Link>
-        <Link to="/">Treino</Link>
-        <Link to="/">Equipamentos</Link>
+        <Link to="/">Academia </Link>
         <Link to="/carrinho">Carrinho</Link>
       </nav>
 
