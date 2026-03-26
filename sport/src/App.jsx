@@ -4,6 +4,7 @@ import { ShoppingCart } from "lucide-react";
 import { IoIosMale } from "react-icons/io";
 import { IoMdFemale } from "react-icons/io";
 import { useState } from "react";
+import { useEffect } from "react";
 import Carrinho from "./pages/Carrinho";
 import Marcas from "./components/Marcas";
 import Header from "./components/Header";
@@ -31,6 +32,27 @@ function App() {
     ...catalogo_mizuno,
   ];
 
+  const [carrinho, setCarrinho] = useState(() => {
+    const carrinhoSalvo = localStorage.getItem("carrinho");
+    return carrinhoSalvo ? JSON.parse(carrinhoSalvo) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  }, [carrinho]);
+
+  const limparCarrinho =() =>{
+    setCarrinho([]);
+  }
+
+  const adcionarAoCarrinho = (produtoSelecionado) => {
+    setCarrinho([...carrinho, produtoSelecionado]);
+  };
+
+  const removerItem = (id) => {
+    setCarrinho(carrinho.filter((item) => item.id !== id));
+  };
+
   const filtrados = todosProdutos.filter(
     (item) =>
       item.title.toLowerCase().includes(busca.toLowerCase()) &&
@@ -48,7 +70,6 @@ function App() {
 
   return (
     <Routes>
-      {/* PÁGINA PRINCIPAL */}
       <Route
         path="/"
         element={
@@ -134,7 +155,7 @@ function App() {
                     }`}
                     onClick={() => setGeneroSelecionado("Feminino")}
                   >
-                    <IoMdFemale size={30} />
+                    <IoMdFemale size={30} color="pink" />
                   </button>
 
                   <button
@@ -143,7 +164,7 @@ function App() {
                     }`}
                     onClick={() => setGeneroSelecionado("Masculino")}
                   >
-                    <IoIosMale size={30} />
+                    <IoIosMale size={30} color="blue" />
                   </button>
 
                   <p>Selecione o tamanho</p>
@@ -164,7 +185,10 @@ function App() {
                     ))}
                   </div>
 
-                  <button className="add">
+                  <button
+                    className="add"
+                    onClick={() => adcionarAoCarrinho(produtoSelecionado)}
+                  >
                     <p>Adicionar ao carrinho</p>
                     <ShoppingCart size={14} />
                   </button>
@@ -179,8 +203,15 @@ function App() {
         }
       />
 
-      
-      <Route path="/carrinho" element={<Carrinho />} />
+      <Route
+        path="/carrinho"
+        element={
+          <div className="app">
+            <Header setBusca={setBusca} />
+            <Carrinho carrinho={carrinho} removerItem={removerItem} limparCarrinho={limparCarrinho} />
+          </div>
+        }
+      />
     </Routes>
   );
 }

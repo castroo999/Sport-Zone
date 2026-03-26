@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Header({ setBusca }) {
+export default function Header({ setBusca}) {
   const [menuAberto, setMenuAberto] = useState(false);
 
   return (
@@ -35,6 +35,8 @@ export default function Header({ setBusca }) {
             </Link>
           </div>
         )}
+
+
 
         <div className="logo">
           <img src={logo} alt="logo" />

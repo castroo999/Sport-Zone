@@ -1,66 +1,82 @@
-.carrinho {
-    width: 100%;
-    height: 200px;
-    background-color: blue;
+.lista-carrinho {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    padding: 12px 40px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.carrinho h1 {
-    margin-top: 2px;
-}
-
-.search-box {
+.item-carrinho {
     display: flex;
     align-items: center;
+    gap: 20px;
+    background: #111;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.item-carrinho img {
+    width: 120px;
+    border-radius: 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
     gap: 8px;
-
-    padding: 8px 14px;
-    border-radius: 999px;
-
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-
-    transition: 0.3s;
+    color: white;
 }
 
-.search-box:focus-within {
-    border: 1px solid #9C4DFF;
-    box-shadow: 0 0 10px rgba(156, 77, 255, 0.4);
-}
-
-.search-icon {
-    color: #ccc;
-}
-
-
-.search-box input {
+.item-carrinho button {
+    background: red;
     border: none;
-    outline: none;
-    background: transparent;
-    color: #fff;
-
-    width: 180px;
+    padding: 8px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-.search-box input::placeholder {
-    color: #aaa;
+.item-carrinho button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
-.search-box input:focus {
-    width: 240px;
+.btn-voltar {
+    margin-top: 10px;
+    margin-left: 20px;
+    background: linear-gradient(90deg, #9C4DFF, #6a11cb);
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    width: 200px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.btn-voltar:active {
+    transform: scale(0.97);
+}
+
+.finalizar {
+    background: green;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.finalizar:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
