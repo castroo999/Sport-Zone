@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   background: linear-gradient(180deg, #0B0B0B, #121212);
   color: whitesmoke;

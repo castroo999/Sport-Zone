@@ -45,7 +45,6 @@ function App() {
 
   const limparCarrinho = () => setCarrinho([]);
 
-  
   const abrirProduto = (item) => {
     setProdutoSelecionado(item);
     setGeneroSelecionado("");
@@ -70,7 +69,7 @@ function App() {
   const filtrados = todosProdutos.filter(
     (item) =>
       item.title.toLowerCase().includes(busca.toLowerCase()) &&
-      (marcaSelecionada === "" || item.marca === marcaSelecionada)
+      (marcaSelecionada === "" || item.marca === marcaSelecionada),
   );
 
   const limparFiltros = () => {
@@ -124,16 +123,16 @@ function App() {
 
             {!busca && !marcaSelecionada && (
               <>
-                <h1 className="titulo">CATÁLOGO</h1>
+                <h1 className="titulo" id="Catalogo">CATÁLOGO</h1>
 
                 {[
                   { titulo: "OLYMPIKUS", lista: catalogo_corre },
                   { titulo: "ADIDAS", lista: catalogo_adzero },
                   { titulo: "NIKE", lista: catalogo_nike },
                   { titulo: "MIZUNO", lista: catalogo_mizuno },
-                  { titulo: "ACADEMIA", lista: catalogo_variados  },
+                  { titulo: "ACADEMIA", lista: catalogo_variados, id:"Academia" },
                 ].map((secao, index) => (
-                  <div key={index}>
+                  <div key={index} id= {secao.id || ""}>
                     <h1 className="titulo-produtos">{secao.titulo}</h1>
 
                     <div className="lista-cards">
@@ -150,7 +149,6 @@ function App() {
               </>
             )}
 
-            
             {produtoSelecionado && (
               <div className="overlay">
                 <div className="modal">
@@ -163,7 +161,6 @@ function App() {
                   <p>{produtoSelecionado.category}</p>
                   <p>R$ {produtoSelecionado.price}</p>
 
-                  
                   {produtoSelecionado.category === "tenis" && (
                     <>
                       <div className="generos">
@@ -187,14 +184,11 @@ function App() {
                       </div>
 
                       {!generoSelecionado && (
-                        <p style={{ color: "red" }}>
-                          Selecione um gênero
-                        </p>
+                        <p style={{ color: "red" }}>Selecione um gênero</p>
                       )}
                     </>
                   )}
 
-                  
                   {produtoSelecionado.tam && (
                     <>
                       <p>Selecione o tamanho</p>
@@ -203,13 +197,9 @@ function App() {
                         {produtoSelecionado.tam.map((tamanho) => (
                           <button
                             key={tamanho}
-                            onClick={() =>
-                              setTamanhoSelecionado(tamanho)
-                            }
+                            onClick={() => setTamanhoSelecionado(tamanho)}
                             className={`tamanho ${
-                              tamanhoSelecionado === tamanho
-                                ? "ativo"
-                                : ""
+                              tamanhoSelecionado === tamanho ? "ativo" : ""
                             }`}
                           >
                             {tamanho}
@@ -218,14 +208,11 @@ function App() {
                       </div>
 
                       {!tamanhoSelecionado && (
-                        <p style={{ color: "red" }}>
-                          Selecione um tamanho
-                        </p>
+                        <p style={{ color: "red" }}>Selecione um tamanho</p>
                       )}
                     </>
                   )}
 
-                  
                   <button
                     className="add"
                     onClick={adcionarAoCarrinho}
@@ -239,10 +226,7 @@ function App() {
                     <ShoppingCart size={14} />
                   </button>
 
-                  <button
-                    className="btn-limpar"
-                    onClick={limparProdutos}
-                  >
+                  <button className="btn-limpar" onClick={limparProdutos}>
                     Fechar
                   </button>
                 </div>

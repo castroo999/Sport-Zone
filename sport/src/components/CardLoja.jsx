@@ -11,7 +11,7 @@ export default function Cards({title, price, category, banner,onClick}){
                 <div className="card-info">
                     <h4>{title}</h4>
                     <p>{category}</p>
-                    <p>{price}</p>
+                    <p> R$ {price}</p>
                     <button className='play-button'>
                         <ShoppingCart size={14}/>
                     </button>

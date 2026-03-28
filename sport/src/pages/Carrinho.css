@@ -80,3 +80,21 @@
     transform: scale(1.05);
     opacity: 0.9;
 }
+
+.limpar {
+    background: red;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.limpar:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}

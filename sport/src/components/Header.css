@@ -64,19 +64,26 @@
     gap: 30px;
 }
 
-.nav a {
+.nav a,
+.nav button {
     color: #ddd;
     text-decoration: none;
     font-weight: 500;
     position: relative;
     transition: 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav button:hover {
     color: #fff;
 }
 
-.nav a::after {
+.nav a::after,
+.nav button::after {
     content: "";
     position: absolute;
     width: 0%;
@@ -87,7 +94,8 @@
     transition: 0.3s;
 }
 
-.nav a:hover::after {
+.nav a:hover::after,
+.nav button:hover::after {
     width: 100%;
 }
 
@@ -165,4 +173,10 @@
 
 .itens-botao a:hover {
     color: #9C4DFF;
+}
+
+.ir{
+    background-color: aquamarine;
+    width: 50px;
+    height: 50px;
 }

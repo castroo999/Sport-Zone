@@ -7,22 +7,28 @@ export default function Carrinho({ carrinho, removerItem, limparCarrinho }) {
   const [mensagem, setMensagem] = useState("");
 
   const finalizarCompra = () => {
+    setMensagem(
+      ` Compra realizada com sucesso! O valor da sua compra foi de: R$ ${total}`,
+    );
     limparCarrinho();
-    setMensagem("✅ Compra realizada com sucesso!");
   };
+
+  const total = carrinho.reduce((soma, item) => soma + item.price, 0);
+  const quant = carrinho.length;
 
   return (
     <div className="carrinho">
       <button className="btn-voltar" onClick={() => navegar("/")}>
-        🛍️ Continuar comprando
+        Continuar comprando
       </button>
 
-      <h1>Bem vindo ao seu carrinho 🛒!</h1>
+      <h1>Bem vindo ao seu carrinho !</h1>
 
       {mensagem && <p className="sucesso">{mensagem}</p>}
-
+      <h2>Total: R$ {total}</h2>
+      <h2>Quantidade: {quant}</h2>
       {carrinho.length === 0 ? (
-        <p className="p">Seu carrinho está vazio 😢</p>
+        <p className="p">Seu carrinho está vazio! </p>
       ) : (
         <>
           <div className="lista-carrinho">
@@ -34,7 +40,9 @@ export default function Carrinho({ carrinho, removerItem, limparCarrinho }) {
               </div>
             ))}
           </div>
-
+          <button className="limpar" onClick={limparCarrinho}>
+            Limpar carrinho
+          </button>
           <button className="finalizar" onClick={finalizarCompra}>
             Finalizar compra
           </button>
