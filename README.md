@@ -23,20 +23,20 @@ Tecnologias utilizadas
 * CSS3
 * React Router
 
-Como rodar o projeto
+Como rodar o projeto:
 
 
-Clone o repositório
-git clone https://github.com/castroo999/Sport-Zone.git
+ 1- Clone o repositório
+    git clone https://github.com/castroo999/Sport-Zone.git
 
-Acesse a pasta
-cd Sport-Zone/sport
+2- Acesse a pasta
+   cd Sport-Zone/sport
 
-Instale as dependências
-npm install
+3- Instale as dependências
+   npm install
 
-Rode o projeto
-npm run dev
+4- Rode o projeto
+   git npm run dev
 
 Preview
 
