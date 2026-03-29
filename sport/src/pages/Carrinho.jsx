@@ -36,6 +36,9 @@ export default function Carrinho({ carrinho, removerItem, limparCarrinho }) {
               <div key={item.id} className="item-carrinho">
                 <h2>{item.title}</h2>
                 <p>R$ {item.price}</p>
+                {item.tamanho &&(
+                  <p>Tamanho: {item.tamanho}</p>
+                )}
                 <button onClick={() => removerItem(item.id)}>Remover</button>
               </div>
             ))}

@@ -69,9 +69,9 @@ export default function Header({ setBusca }) {
 
       <nav className="nav">
         <button onClick={() => irPara("Catalogo")}>Catalogo</button>
-        <button onClick={() => irPara("Esportes")}>Esportes</button>
-        <button onClick={() => irPara("Moda Casual")}>Moda Casual</button>
         <button onClick={() => irPara("Academia")}>Academia</button>
+        <button onClick={() => irPara("Moda Casual")}>Moda Casual</button>
+        <button onClick={() => irPara("Esportes")}>Esportes</button>
         <button onClick={() => navegar("/carrinho")}>Carrinho</button>
       </nav>
 
