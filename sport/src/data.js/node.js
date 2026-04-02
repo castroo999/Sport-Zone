@@ -119,7 +119,7 @@ import brinco from '../assets/brinco.webp'
 import brinco2 from '../assets/brinco2.webp'
 import colar from '../assets/colar.webp'
 import colar2 from '../assets/colar2.webp'
-import top from '../assets/top.webp'
+
 
 
 export const catalogo_modaFem = [
@@ -128,9 +128,33 @@ export const catalogo_modaFem = [
     { id: 3, title: "Blusa Baby Look Feminina (Cinza)", price: 53.99, category: "Moda Casual", banner: camisa7 },
     { id: 4, title: "Calça Alfaiataria Feminina", price: 69.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: calca3 },
     { id: 5, title: "Calça Alfaiataria Feminina", price: 69.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: calca4 },
-    { id: 6, title: "Kit 4 Top Feminino", price: 45.19, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: top },
-    { id: 7, title: "Brinco Pérola ", price: 19.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: brinco },
-    { id: 8, title: "Brinco e Colar Diamente Branco", price: 49.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: brinco2 },
-    { id: 9, title: "Kit Brinco Colar Corrente Argola Pequenos", price: 40.19, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: colar2 },
-    { id: 10, title: "Conjunto Colar E Brinco Pérola", price: 30.55, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: colar },
+    { id: 6, title: "Brinco Pérola ", price: 19.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: brinco },
+    { id: 7, title: "Brinco e Colar Diamente Branco", price: 49.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: brinco2 },
+    { id: 8, title: "Kit Brinco Colar Corrente Argola Pequenos", price: 40.19, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: colar2 },
+    { id: 9, title: "Conjunto Colar E Brinco Pérola", price: 30.55, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: colar },
+]
+
+import alemanha from '../assets/alemanha.webp'
+import barça from '../assets/barça.webp'
+import arsenal from '../assets/arsenal.webp'
+import fla from '../assets/fla.webp'
+import franca from '../assets/franca.jpg'
+import lazio from '../assets/lazio.webp'
+import milao from '../assets/milao.webp'
+import PSG from '../assets/PSG.webp'
+import real from '../assets/real.webp'
+
+
+
+export const catalogo_esportes = [
+    { id: 1, title: "Camisa Seleção Alemã", price: 250.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: alemanha },
+    { id: 2, title: "Camisa Seleção França", price: 250.00, tam: ["P", "M", "G", "GG"],marca: "Nike", category: "Esportes", banner: franca },
+    { id: 3, title: "Camisa Barcelona", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Nike", category: "Esportes", banner: barça },
+    { id: 4, title: "Camisa Arsenal", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: arsenal },
+    { id: 5, title: "Camisa Flamengo", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: fla },
+    { id: 6, title: "Camisa Lazio", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Mizuno", category: "Esportes", banner: lazio },
+    { id: 7, title: "Camisa Inter de Milão", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Nike",  category: "Esportes", banner: milao },
+    { id: 8, title: "Camisa PSG", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Nike", category: "Esportes", banner: PSG },
+    { id: 9, title: "Camisa Real Madrid", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: real },
+
 ]

@@ -152,8 +152,9 @@
     align-items: center;
     flex-direction: column;
     position: absolute;
+    margin-top: 30px;
     padding: 15px;
-    gap: 10px;
+    gap: 5px;
     border-radius: 10px;
     background-color: #111;
     transform: translateY(-20px);
@@ -165,6 +166,18 @@
     opacity: 1;
 }
 
+.itens-botao button{
+    all: unset;
+    border: none;
+    text-decoration: none;
+    color: white;
+    transition: 0.4s;
+}
+
+.itens-botao button:hover{
+    color: #9C4DFF;
+}
+
 .itens-botao a {
     text-decoration: none;
     color: white;
@@ -173,10 +186,4 @@
 
 .itens-botao a:hover {
     color: #9C4DFF;
-}
-
-.ir{
-    background-color: aquamarine;
-    width: 50px;
-    height: 50px;
 }

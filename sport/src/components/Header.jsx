@@ -51,6 +51,7 @@ export default function Header({ setBusca }) {
 
         {menuAberto && (
           <div className={`itens-botao ${menuAberto ? "ativo" : ""}`}>
+            <button onClick={() => irPara("Catalogo")}>Catalogo</button>
             <button onClick={() => irPara("Academia")}>Academia</button>
             <button onClick={() => irPara("Moda Casual")}>Moda Casual</button>
             <button onClick={() => irPara("Esportes")}>Esportes</button>

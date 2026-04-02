@@ -18,11 +18,13 @@ import {
   catalogo_academia,
   catalogo_moda,
   catalogo_modaFem,
+  catalogo_esportes,
 } from "./data.js/node";
 
 function App() {
   const [busca, setBusca] = useState("");
   const [marcaSelecionada, setMarcaSelecionada] = useState("");
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
   const [tamanhoSelecionado, setTamanhoSelecionado] = useState("");
   const [generoSelecionado, setGeneroSelecionado] = useState("");
   const [produtoSelecionado, setProdutoSelecionado] = useState(null);
@@ -34,7 +36,8 @@ function App() {
     ...catalogo_mizuno,
     ...catalogo_academia,
     ...catalogo_moda,
-    ...catalogo_modaFem
+    ...catalogo_modaFem,
+    ...catalogo_esportes,
   ];
 
   const [carrinho, setCarrinho] = useState(() => {
@@ -69,15 +72,19 @@ function App() {
     setCarrinho(carrinho.filter((item) => item.id !== id));
   };
 
+  //  FILTRO COMPLETO
   const filtrados = todosProdutos.filter(
     (item) =>
       item.title.toLowerCase().includes(busca.toLowerCase()) &&
-      (marcaSelecionada === "" || item.marca === marcaSelecionada)
+      (marcaSelecionada === "" || item.marca === marcaSelecionada) &&
+      (categoriaSelecionada === "" || item.category === categoriaSelecionada)
   );
 
+  //  LIMPA TUDO
   const limparFiltros = () => {
     setBusca("");
     setMarcaSelecionada("");
+    setCategoriaSelecionada("");
   };
 
   const limparProdutos = () => {
@@ -94,18 +101,26 @@ function App() {
         element={
           <div className="app">
             <Header setBusca={setBusca} />
+
             <Carossel />
 
             <h2 className="titulo-secao">NAVEGUE POR MARCAS</h2>
-            <Marcas setMarcaSelecionada={setMarcaSelecionada} />
 
-            {(busca || marcaSelecionada) && (
+            {/*  PASSA CATEGORIA*/}
+            <Marcas
+              setMarcaSelecionada={setMarcaSelecionada}
+              setCategoriaSelecionada={setCategoriaSelecionada}
+            />
+
+            {/* BOTÃO LIMPAR */}
+            {(busca || marcaSelecionada || categoriaSelecionada) && (
               <button className="btn-limpar" onClick={limparFiltros}>
                 Limpar filtros
               </button>
             )}
 
-            {(busca || marcaSelecionada) && (
+            {/* RESULTADO FILTRADO */}
+            {(busca || marcaSelecionada || categoriaSelecionada) && (
               <>
                 <h1 className="titulo-produtos">Produtos</h1>
 
@@ -119,13 +134,16 @@ function App() {
                       />
                     ))
                   ) : (
-                    <p className="sem-produto">Nenhum produto encontrado</p>
+                    <p className="sem-produto">
+                      Nenhum produto encontrado
+                    </p>
                   )}
                 </div>
               </>
             )}
 
-            {!busca && !marcaSelecionada && (
+            {/* CATÁLOGO */}
+            {!busca && !marcaSelecionada && !categoriaSelecionada && (
               <>
                 <h1 className="titulo" id="Catalogo">
                   CATÁLOGO
@@ -151,6 +169,11 @@ function App() {
                     lista: catalogo_modaFem,
                     id: "Moda Casual",
                   },
+                  {
+                    titulo: "ESPORTES",
+                    lista: catalogo_esportes,
+                    id: "Esportes",
+                  },
                 ].map((secao, index) => (
                   <div key={index} id={secao.id || ""}>
                     <h1 className="titulo-produtos">{secao.titulo}</h1>
@@ -169,6 +192,7 @@ function App() {
               </>
             )}
 
+            {/* MODAL */}
             {produtoSelecionado && (
               <div className="overlay">
                 <div className="modal">
@@ -180,11 +204,11 @@ function App() {
                   <h2>{produtoSelecionado.title}</h2>
                   <p>{produtoSelecionado.category}</p>
                   <p>R$ {produtoSelecionado.price}</p>
-
+                    
                   {produtoSelecionado.tam && (
                     <>
                       <p>Selecione o tamanho</p>
-
+                      
                       <div className="tamanhos">
                         {produtoSelecionado.tam.map((tamanho) => (
                           <button
@@ -223,7 +247,6 @@ function App() {
               </div>
             )}
 
-            
             <Footer />
           </div>
         }
@@ -235,6 +258,7 @@ function App() {
         element={
           <div className="app">
             <Header setBusca={setBusca} />
+
             <Carrinho
               carrinho={carrinho}
               removerItem={removerItem}
