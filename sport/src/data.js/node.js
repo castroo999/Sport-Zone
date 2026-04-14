@@ -94,7 +94,6 @@ import camisa2 from '../assets/camisa2.webp';
 import camisa3 from '../assets/camisa3.webp';
 import camisa4 from '../assets/camisa4.webp';
 import calca from '../assets/calca.webp';
-import calca2 from '../assets/calca2.webp';
 import relogio from '../assets/relogio.webp';
 import relogio2 from '../assets/relogio2.webp';
 
@@ -105,9 +104,8 @@ export const catalogo_moda = [
     { id: 4, title: "Camisa Manga Curta (Azul)", price: 79.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: camisa3 },
     { id: 5, title: "Kit Camisetas", price: 79.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: camisa4 },
     { id: 6, title: "Calça Cargo", price: 149.99, tam: ["38", "40", "42", "44"], category: "Moda Casual", banner: calca },
-    { id: 7, title: "Calça Preta", price: 149.99, tam: ["38", "40", "42", "44"], category: "Moda Casual", banner: calca2 },
-    { id: 8, title: "Relógio Preto", price: 129.91, category: "Acessório", banner: relogio },
-    { id: 9, title: "Relógio Couro", price: 125.85, category: "Acessório", banner: relogio2 }
+    { id: 7, title: "Relógio Preto", price: 129.91, category: "Acessório", banner: relogio },
+    { id: 8, title: "Relógio Couro", price: 125.85, category: "Acessório", banner: relogio2 }
 ];
 
 import camisa5 from '../assets/camisa5.webp'
