@@ -79,7 +79,7 @@ function App() {
       (marcaSelecionada === "" || item.marca === marcaSelecionada) &&
       (categoriaSelecionada === "" || item.category === categoriaSelecionada)
   );
-
+//teste
   //  LIMPA TUDO
   const limparFiltros = () => {
     setBusca("");
