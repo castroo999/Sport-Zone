@@ -2,7 +2,6 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { useState, useEffect } from "react";
-
 import Footer from "./components/Footer";
 import Carrinho from "./pages/Carrinho";
 import Marcas from "./components/Marcas";
@@ -29,6 +28,15 @@ function App() {
   const [generoSelecionado, setGeneroSelecionado] = useState("");
   const [produtoSelecionado, setProdutoSelecionado] = useState(null);
 
+  const [favoritos, setFavoritos] = useState(() => {
+    const favSalvo = localStorage.getItem("favoritos");
+    return favSalvo ? JSON.parse(favSalvo) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
+  }, [favoritos]);
+
   const todosProdutos = [
     ...catalogo_corre,
     ...catalogo_adzero,
@@ -39,6 +47,12 @@ function App() {
     ...catalogo_modaFem,
     ...catalogo_esportes,
   ];
+
+  const toggleFavorito = (id) => {
+    setFavoritos((prev) =>
+      prev.includes(id) ? prev.filter((fav) => fav !== id) : [...prev, id],
+    );
+  };
 
   const [carrinho, setCarrinho] = useState(() => {
     const carrinhoSalvo = localStorage.getItem("carrinho");
@@ -77,9 +91,9 @@ function App() {
     (item) =>
       item.title.toLowerCase().includes(busca.toLowerCase()) &&
       (marcaSelecionada === "" || item.marca === marcaSelecionada) &&
-      (categoriaSelecionada === "" || item.category === categoriaSelecionada)
+      (categoriaSelecionada === "" || item.category === categoriaSelecionada),
   );
-//teste
+
   //  LIMPA TUDO
   const limparFiltros = () => {
     setBusca("");
@@ -134,9 +148,7 @@ function App() {
                       />
                     ))
                   ) : (
-                    <p className="sem-produto">
-                      Nenhum produto encontrado
-                    </p>
+                    <p className="sem-produto">Nenhum produto encontrado</p>
                   )}
                 </div>
               </>
@@ -184,6 +196,9 @@ function App() {
                           key={item.id}
                           {...item}
                           onClick={() => abrirProduto(item)}
+                          isFavorito={favoritos.includes(item.id)}
+                          
+                          toggleFavorito={toggleFavorito}
                         />
                       ))}
                     </div>
@@ -204,11 +219,12 @@ function App() {
                   <h2>{produtoSelecionado.title}</h2>
                   <p>{produtoSelecionado.category}</p>
                   <p>R$ {produtoSelecionado.price}</p>
-                    
+
+
                   {produtoSelecionado.tam && (
                     <>
                       <p>Selecione o tamanho</p>
-                      
+
                       <div className="tamanhos">
                         {produtoSelecionado.tam.map((tamanho) => (
                           <button
@@ -224,9 +240,7 @@ function App() {
                       </div>
 
                       {!tamanhoSelecionado && (
-                        <p style={{ color: "red" }}>
-                          Selecione um tamanho
-                        </p>
+                        <p style={{ color: "red" }}>Selecione um tamanho</p>
                       )}
                     </>
                   )}
