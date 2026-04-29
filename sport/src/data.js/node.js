@@ -8,12 +8,12 @@ import cinquenta from '../assets/cinquenta.webp';
 const TAM_TENIS = ["38", "39", "40", "41", "42", "43"];
 
 export const catalogo_corre = [
-    { id: 1, title: "Corre 4 (Laranja)", price: 599.99, category: "Tênis", tam: TAM_TENIS, marca: "Olympikus", banner: laranja },
-    { id: 2, title: "Corre 4 (Bege)", price: 599.99, category: "Tênis", tam: TAM_TENIS, marca: "Olympikus", banner: bege },
-    { id: 3, title: "Corre 4 (Branco e Laranja)", price: 599.99, category: "Tênis", tam: TAM_TENIS, marca: "Olympikus", banner: duplo },
-    { id: 4, title: "Corre 4 (Azul)", price: 599.99, category: "Tênis", tam: TAM_TENIS, marca: "Olympikus", banner: azul },
-    { id: 5, title: "Corre 4 Supra", price: 599.99, category: "Tênis", tam: TAM_TENIS, marca: "Olympikus", banner: corre_supra },
-    { id: 6, title: "Corre 4 (50 anos)", price: 599.99, category: "Tênis", tam: TAM_TENIS, marca: "Olympikus", banner: cinquenta }
+    { id: "corre-1", title: "Corre 4 (Laranja)", price: 599.99, category: "Tênis", tam: TAM_TENIS, marca: "Olympikus", banner: laranja },
+    { id: "corre-2", title: "Corre 4 (Bege)", price: 599.99, category: "Tênis", tam: TAM_TENIS, marca: "Olympikus", banner: bege },
+    { id: "corre-3", title: "Corre 4 (Branco e Laranja)", price: 599.99, category: "Tênis", tam: TAM_TENIS, marca: "Olympikus", banner: duplo },
+    { id: "corre-4", title: "Corre 4 (Azul)", price: 599.99, category: "Tênis", tam: TAM_TENIS, marca: "Olympikus", banner: azul },
+    { id: "corre-5", title: "Corre 4 Supra", price: 599.99, category: "Tênis", tam: TAM_TENIS, marca: "Olympikus", banner: corre_supra },
+    { id: "corre-6", title: "Corre 4 (50 anos)", price: 599.99, category: "Tênis", tam: TAM_TENIS, marca: "Olympikus", banner: cinquenta }
 ];
 
 import adzero from '../assets/adzero.webp';
@@ -24,12 +24,12 @@ import drive_rc from '../assets/dirve_rc.webp';
 import drive_branco from '../assets/drive_branco.webp';
 
 export const catalogo_adzero = [
-    { id: 1, title: "Adzero evo sl (Preto)", price: 1100.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: adzero },
-    { id: 2, title: "Adzero evo sl (Branco)", price: 1100.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: adzero_branco },
-    { id: 3, title: "Adzero drive (Azul)", price: 1000.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: drive_azul },
-    { id: 4, title: "Adzero drive (Branco)", price: 1000.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: drive_branco },
-    { id: 5, title: "Adzero drive rc", price: 1000.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: drive_rc },
-    { id: 6, title: "Adzero maratona rio", price: 1300.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: rio }
+    { id: "adidas-1", title: "Adzero evo sl (Preto)", price: 1100.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: adzero },
+    { id: "adidas-2", title: "Adzero evo sl (Branco)", price: 1100.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: adzero_branco },
+    { id: "adidas-3", title: "Adzero drive (Azul)", price: 1000.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: drive_azul },
+    { id: "adidas-4", title: "Adzero drive (Branco)", price: 1000.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: drive_branco },
+    { id: "adidas-5", title: "Adzero drive rc", price: 1000.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: drive_rc },
+    { id: "adidas-6", title: "Adzero maratona rio", price: 1300.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: rio }
 ];
 
 import nike_corrida from '../assets/nike_corrida.webp';
@@ -40,12 +40,12 @@ import nike_journey from '../assets/nike_journey.webp';
 import nike_revolution from '../assets/nike_revolution.webp';
 
 export const catalogo_nike = [
-    { id: 1, title: "Nike Metcon", price: 750.00, category: "Tênis", tam: TAM_TENIS, marca: "Nike", banner: nike_corrida },
-    { id: 2, title: "Nike ZoomX Vaporfly", price: 1199.99, category: "Tênis", tam: TAM_TENIS, marca: "Nike", banner: nike_zoomX },
-    { id: 3, title: "Nike Zoom Fly", price: 849.99, category: "Tênis", tam: TAM_TENIS, marca: "Nike", banner: nike_fly },
-    { id: 4, title: "Nike Pegasus", price: 500.00, category: "Tênis", tam: TAM_TENIS, marca: "Nike", banner: nike_revolution },
-    { id: 5, title: "Nike Infinity Run", price: 700.00, category: "Tênis", tam: TAM_TENIS, marca: "Nike", banner: nike_journey },
-    { id: 6, title: "Nike Downshifter", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Nike", banner: nike_donwshifter }
+    { id: "nike-1", title: "Nike Metcon", price: 750.00, category: "Tênis", tam: TAM_TENIS, marca: "Nike", banner: nike_corrida },
+    { id: "nike-2", title: "Nike ZoomX Vaporfly", price: 1199.99, category: "Tênis", tam: TAM_TENIS, marca: "Nike", banner: nike_zoomX },
+    { id: "nike-3", title: "Nike Zoom Fly", price: 849.99, category: "Tênis", tam: TAM_TENIS, marca: "Nike", banner: nike_fly },
+    { id: "nike-4", title: "Nike Pegasus", price: 500.00, category: "Tênis", tam: TAM_TENIS, marca: "Nike", banner: nike_revolution },
+    { id: "nike-5", title: "Nike Infinity Run", price: 700.00, category: "Tênis", tam: TAM_TENIS, marca: "Nike", banner: nike_journey },
+    { id: "nike-6", title: "Nike Downshifter", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Nike", banner: nike_donwshifter }
 ];
 
 import base_prrime from '../assets/base_prime.webp';
@@ -56,12 +56,12 @@ import aura from '../assets/aura.webp';
 import space from '../assets/space.webp';
 
 export const catalogo_mizuno = [
-    { id: 1, title: "Mizuno Base Prime", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: base_prrime },
-    { id: 2, title: "Mizuno Base Prime (Verde agua)", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: prime_verde },
-    { id: 3, title: "Mizuno Wave Creation 26", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: wave },
-    { id: 4, title: "Mizuno Victory", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: victory },
-    { id: 5, title: "Mizuno Neo Aura", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: aura },
-    { id: 6, title: "Mizuno Space 5", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: space }
+    { id: "mizuno-1", title: "Mizuno Base Prime", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: base_prrime },
+    { id: "mizuno-2", title: "Mizuno Base Prime (Verde agua)", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: prime_verde },
+    { id: "mizuno-3", title: "Mizuno Wave Creation 26", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: wave },
+    { id: "mizuno-4", title: "Mizuno Victory", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: victory },
+    { id: "mizuno-5", title: "Mizuno Neo Aura", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: aura },
+    { id: "mizuno-6", title: "Mizuno Space 5", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: space }
 ];
 
 import bands from '../assets/bands.webp';
@@ -76,16 +76,16 @@ import caneleira from '../assets/caneireira.webp';
 import presilha from '../assets/presilha.webp';
 
 export const catalogo_academia = [
-    { id: 1, title: "Elastico", price: 90.72, category: "Academia", banner: bands },
-    { id: 2, title: "Par Halteres 10kg", price: 450.00, category: "Academia", banner: dezkg },
-    { id: 3, title: "Expositor de Halteres", price: 291.28, category: "Academia", banner: repositor },
-    { id: 4, title: "Par de Halteres Emborrachado 3kg", price: 150.00, category: "Academia", banner: treskg },
-    { id: 5, title: "Barra W", price: 300.00, category: "Academia", banner: barra },
-    { id: 6, title: "Cadeira Extensora", price: 6999.99, category: "Academia", banner: cadeira },
-    { id: 7, title: "Kit Anilhas", price: 300.00, category: "Academia", banner: kit2 },
-    { id: 8, title: "Colchão", price: 135.65, category: "Academia", banner: colchao },
-    { id: 9, title: "Caneleira 4kg", price: 64.99, category: "Academia", banner: caneleira },
-    { id: 10, title: "Presilha", price: 12.99, category: "Academia", banner: presilha }
+    { id: "acad-1", title: "Elastico", price: 90.72, category: "Academia", banner: bands },
+    { id: "acad-2", title: "Par Halteres 10kg", price: 450.00, category: "Academia", banner: dezkg },
+    { id: "acad-3", title: "Expositor de Halteres", price: 291.28, category: "Academia", banner: repositor },
+    { id: "acad-4", title: "Par de Halteres Emborrachado 3kg", price: 150.00, category: "Academia", banner: treskg },
+    { id: "acad-5", title: "Barra W", price: 300.00, category: "Academia", banner: barra },
+    { id: "acad-6", title: "Cadeira Extensora", price: 6999.99, category: "Academia", banner: cadeira },
+    { id: "acad-7", title: "Kit Anilhas", price: 300.00, category: "Academia", banner: kit2 },
+    { id: "acad-8", title: "Colchão", price: 135.65, category: "Academia", banner: colchao },
+    { id: "acad-9", title: "Caneleira 4kg", price: 64.99, category: "Academia", banner: caneleira },
+    { id: "acad-10", title: "Presilha", price: 12.99, category: "Academia", banner: presilha }
 ];
 
 import shorts from '../assets/shorts.webp';
@@ -98,14 +98,14 @@ import relogio from '../assets/relogio.webp';
 import relogio2 from '../assets/relogio2.webp';
 
 export const catalogo_moda = [
-    { id: 1, title: "Kit 4 Bermuda", price: 69.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: shorts },
-    { id: 2, title: "Camisa Manga Curta (Preta)", price: 79.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: camisa },
-    { id: 3, title: "Camisa Manga Longa (Branca)", price: 79.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: camisa2 },
-    { id: 4, title: "Camisa Manga Curta (Azul)", price: 79.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: camisa3 },
-    { id: 5, title: "Kit Camisetas", price: 79.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: camisa4 },
-    { id: 6, title: "Calça Cargo", price: 149.99, tam: ["38", "40", "42", "44"], category: "Moda Casual", banner: calca },
-    { id: 7, title: "Relógio Preto", price: 129.91, category: "Acessório", banner: relogio },
-    { id: 8, title: "Relógio Couro", price: 125.85, category: "Acessório", banner: relogio2 }
+    { id: "modaM-1", title: "Kit 4 Bermuda", price: 69.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: shorts },
+    { id: "modaM-2", title: "Camisa Manga Curta (Preta)", price: 79.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: camisa },
+    { id: "modaM-3", title: "Camisa Manga Longa (Branca)", price: 79.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: camisa2 },
+    { id: "modaM-4", title: "Camisa Manga Curta (Azul)", price: 79.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: camisa3 },
+    { id: "modaM-5", title: "Kit Camisetas", price: 79.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: camisa4 },
+    { id: "modaM-6", title: "Calça Cargo", price: 149.99, tam: ["38", "40", "42", "44"], category: "Moda Casual", banner: calca },
+    { id: "modaM-7", title: "Relógio Preto", price: 129.91, category: "Acessório", banner: relogio },
+    { id: "modaM-8", title: "Relógio Couro", price: 125.85, category: "Acessório", banner: relogio2 }
 ];
 
 import camisa5 from '../assets/camisa5.webp'
@@ -118,19 +118,17 @@ import brinco2 from '../assets/brinco2.webp'
 import colar from '../assets/colar.webp'
 import colar2 from '../assets/colar2.webp'
 
-
-
 export const catalogo_modaFem = [
-    { id: 1, title: "Blusa Social Feminina Manga Longa", price: 80.00, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: camisa5 },
-    { id: 2, title: "Blusa Baby Look Feminina (Preta)", price: 53.99, category: "Moda Casual", banner: camisa6 },
-    { id: 3, title: "Blusa Baby Look Feminina (Cinza)", price: 53.99, category: "Moda Casual", banner: camisa7 },
-    { id: 4, title: "Calça Alfaiataria Feminina", price: 69.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: calca3 },
-    { id: 5, title: "Calça Alfaiataria Feminina", price: 69.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: calca4 },
-    { id: 6, title: "Brinco Pérola ", price: 19.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: brinco },
-    { id: 7, title: "Brinco e Colar Diamente Branco", price: 49.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: brinco2 },
-    { id: 8, title: "Kit Brinco Colar Corrente Argola Pequenos", price: 40.19, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: colar2 },
-    { id: 9, title: "Conjunto Colar E Brinco Pérola", price: 30.55, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: colar },
-]
+    { id: "modaF-1", title: "Blusa Social Feminina Manga Longa", price: 80.00, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: camisa5 },
+    { id: "modaF-2", title: "Blusa Baby Look Feminina (Preta)", price: 53.99, category: "Moda Casual", banner: camisa6 },
+    { id: "modaF-3", title: "Blusa Baby Look Feminina (Cinza)", price: 53.99, category: "Moda Casual", banner: camisa7 },
+    { id: "modaF-4", title: "Calça Alfaiataria Feminina", price: 69.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: calca3 },
+    { id: "modaF-5", title: "Calça Alfaiataria Feminina", price: 69.99, tam: ["P", "M", "G", "GG"], category: "Moda Casual", banner: calca4 },
+    { id: "modaF-6", title: "Brinco Pérola", price: 19.99, category: "Moda Casual", banner: brinco },
+    { id: "modaF-7", title: "Brinco e Colar Diamante Branco", price: 49.99, category: "Moda Casual", banner: brinco2 },
+    { id: "modaF-8", title: "Kit Brinco Colar Corrente Argola Pequenos", price: 40.19, category: "Moda Casual", banner: colar2 },
+    { id: "modaF-9", title: "Conjunto Colar E Brinco Pérola", price: 30.55, category: "Moda Casual", banner: colar },
+];
 
 import alemanha from '../assets/alemanha.webp'
 import barça from '../assets/barça.webp'
@@ -142,17 +140,14 @@ import milao from '../assets/milao.webp'
 import PSG from '../assets/PSG.webp'
 import real from '../assets/real.webp'
 
-
-
 export const catalogo_esportes = [
-    { id: 1, title: "Camisa Seleção Alemã", price: 250.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: alemanha },
-    { id: 2, title: "Camisa Seleção França", price: 250.00, tam: ["P", "M", "G", "GG"],marca: "Nike", category: "Esportes", banner: franca },
-    { id: 3, title: "Camisa Barcelona", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Nike", category: "Esportes", banner: barça },
-    { id: 4, title: "Camisa Arsenal", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: arsenal },
-    { id: 5, title: "Camisa Flamengo", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: fla },
-    { id: 6, title: "Camisa Lazio", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Mizuno", category: "Esportes", banner: lazio },
-    { id: 7, title: "Camisa Inter de Milão", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Nike",  category: "Esportes", banner: milao },
-    { id: 8, title: "Camisa PSG", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Nike", category: "Esportes", banner: PSG },
-    { id: 9, title: "Camisa Real Madrid", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: real },
-
-]
+    { id: "esp-1", title: "Camisa Seleção Alemã", price: 250.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: alemanha },
+    { id: "esp-2", title: "Camisa Seleção França", price: 250.00, tam: ["P", "M", "G", "GG"], marca: "Nike", category: "Esportes", banner: franca },
+    { id: "esp-3", title: "Camisa Barcelona", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Nike", category: "Esportes", banner: barça },
+    { id: "esp-4", title: "Camisa Arsenal", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: arsenal },
+    { id: "esp-5", title: "Camisa Flamengo", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: fla },
+    { id: "esp-6", title: "Camisa Lazio", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Mizuno", category: "Esportes", banner: lazio },
+    { id: "esp-7", title: "Camisa Inter de Milão", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Nike", category: "Esportes", banner: milao },
+    { id: "esp-8", title: "Camisa PSG", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Nike", category: "Esportes", banner: PSG },
+    { id: "esp-9", title: "Camisa Real Madrid", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: real },
+];

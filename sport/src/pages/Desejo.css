@@ -1,0 +1,16 @@
+
+.container-fav {
+    padding: 40px 20px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sem-produto {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 40px;
+    color: gray;
+}

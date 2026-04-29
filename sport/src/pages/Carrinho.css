@@ -1,3 +1,11 @@
+.carrinho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 8px 5px;
+}
+
 .lista-carrinho {
     display: flex;
     flex-direction: column;

@@ -8,6 +8,7 @@ import Marcas from "./components/Marcas";
 import Header from "./components/Header";
 import Carossel from "./components/Carossel";
 import CardLoja from "./components/CardLoja";
+import Lista from "./pages/Desejo";
 
 import {
   catalogo_corre,
@@ -118,6 +119,8 @@ function App() {
 
             <Carossel />
 
+            
+
             <h2 className="titulo-secao">NAVEGUE POR MARCAS</h2>
 
             {/*  PASSA CATEGORIA*/}
@@ -145,6 +148,8 @@ function App() {
                         key={item.id}
                         {...item}
                         onClick={() => abrirProduto(item)}
+                        isFavorito={favoritos.includes(item.id)}
+                        toggleFavorito={toggleFavorito}
                       />
                     ))
                   ) : (
@@ -197,7 +202,6 @@ function App() {
                           {...item}
                           onClick={() => abrirProduto(item)}
                           isFavorito={favoritos.includes(item.id)}
-                          
                           toggleFavorito={toggleFavorito}
                         />
                       ))}
@@ -219,7 +223,6 @@ function App() {
                   <h2>{produtoSelecionado.title}</h2>
                   <p>{produtoSelecionado.category}</p>
                   <p>R$ {produtoSelecionado.price}</p>
-
 
                   {produtoSelecionado.tam && (
                     <>
@@ -279,6 +282,22 @@ function App() {
               limparCarrinho={limparCarrinho}
             />
           </div>
+        }
+      />
+
+      {/* FAVORITOS */}
+      <Route
+        path="/favoritos"
+        element={
+          <Lista
+            favoritos={favoritos}
+            todosProdutos={todosProdutos}
+            toggleFavorito={toggleFavorito}
+            abrirProduto={abrirProduto}
+            setBusca={setBusca}
+            carrinho={carrinho}
+            setCarrinho={setCarrinho}
+          />
         }
       />
     </Routes>

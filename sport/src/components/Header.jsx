@@ -58,7 +58,7 @@ export default function Header({ setBusca }) {
             <Link to="/carrinho" onClick={() => setMenuAberto(false)}>
               Carrinho
             </Link>
-            <Link to="/Desejo" onClick={() => setMenuAberto(false)}>
+            <Link to="/favoritos" onClick={() => setMenuAberto(false)}>
               Lista de desejos
             </Link>
           </div>
@@ -76,7 +76,7 @@ export default function Header({ setBusca }) {
         <button onClick={() => irPara("Academia")}>Academia</button>
         <button onClick={() => irPara("Moda Casual")}>Moda Casual</button>
         <button onClick={() => irPara("Esportes")}>Esportes</button>
-        <button onClick={() => irPara("Desejos")}>Lista de desejos</button>
+        <button onClick={() => navegar("/favoritos")}>Lista de desejos</button>
         <button onClick={() => navegar("/carrinho")}>Carrinho</button>
       </nav>
 
