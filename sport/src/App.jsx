@@ -19,7 +19,7 @@ import {
   catalogo_moda,
   catalogo_modaFem,
   catalogo_esportes,
-} from "./data.js/node";
+} from "./data/node";
 
 function App() {
   const [busca, setBusca] = useState("");
@@ -118,8 +118,6 @@ function App() {
             <Header setBusca={setBusca} />
 
             <Carossel />
-
-            
 
             <h2 className="titulo-secao">NAVEGUE POR MARCAS</h2>
 
