@@ -24,8 +24,8 @@ import drive_rc from '../assets/dirve_rc.webp';
 import drive_branco from '../assets/drive_branco.webp';
 
 export const catalogo_adzero = [
-    { id: 7, title: "Adzero evo sl (Preto)", price: 1100.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: adzero },
-    { id: 8, title: "Adzero evo sl (Branco)", price: 1100.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: adzero_branco },
+    { id: 7, title: "Adzero evo sl (Preto)", price: 1999.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: adzero },
+    { id: 8, title: "Adzero evo sl (Branco)", price: 1999.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: adzero_branco },
     { id: 9, title: "Adzero drive (Azul)", price: 900.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: drive_azul },
     { id: 10, title: "Adzero drive (Branco)", price: 900.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: drive_branco },
     { id: 11, title: "Adzero drive rc", price: 900.00, category: "Tênis", tam: TAM_TENIS, marca: "Adidas", banner: drive_rc },
@@ -64,7 +64,7 @@ export const catalogo_mizuno = [
     { id: 24, title: "Mizuno Space 5", price: 600.00, category: "Tênis", tam: TAM_TENIS, marca: "Mizuno", banner: space }
 ];
 
-import bands from '../assets/bands.webp';
+import bands from '../assets/bolsa.webp';
 import repositor from '../assets/repositor.webp';
 import dezkg from '../assets/10kg.webp';
 import treskg from '../assets/3kg.webp';

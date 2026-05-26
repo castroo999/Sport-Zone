@@ -2,6 +2,10 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { useState, useEffect } from "react";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import Footer from "./components/Footer";
 import Carrinho from "./pages/Carrinho";
 import Marcas from "./components/Marcas";
@@ -34,9 +38,29 @@ function App() {
     return favSalvo ? JSON.parse(favSalvo) : [];
   });
 
+  const [carrinho, setCarrinho] = useState(() => {
+    const carrinhoSalvo = localStorage.getItem("carrinho");
+    return carrinhoSalvo ? JSON.parse(carrinhoSalvo) : [];
+  });
+
+  // AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
+  // FAVORITOS
   useEffect(() => {
     localStorage.setItem("favoritos", JSON.stringify(favoritos));
   }, [favoritos]);
+
+  // CARRINHO
+  useEffect(() => {
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  }, [carrinho]);
 
   const todosProdutos = [
     ...catalogo_corre,
@@ -54,15 +78,6 @@ function App() {
       prev.includes(id) ? prev.filter((fav) => fav !== id) : [...prev, id],
     );
   };
-
-  const [carrinho, setCarrinho] = useState(() => {
-    const carrinhoSalvo = localStorage.getItem("carrinho");
-    return carrinhoSalvo ? JSON.parse(carrinhoSalvo) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-  }, [carrinho]);
 
   const limparCarrinho = () => setCarrinho([]);
 
@@ -87,7 +102,7 @@ function App() {
     setCarrinho(carrinho.filter((item) => item.id !== id));
   };
 
-  //  FILTRO COMPLETO
+  // FILTRO
   const filtrados = todosProdutos.filter(
     (item) =>
       item.title.toLowerCase().includes(busca.toLowerCase()) &&
@@ -95,7 +110,7 @@ function App() {
       (categoriaSelecionada === "" || item.category === categoriaSelecionada),
   );
 
-  //  LIMPA TUDO
+  // LIMPAR FILTROS
   const limparFiltros = () => {
     setBusca("");
     setMarcaSelecionada("");
@@ -121,7 +136,6 @@ function App() {
 
             <h2 className="titulo-secao">NAVEGUE POR MARCAS</h2>
 
-            {/*  PASSA CATEGORIA*/}
             <Marcas
               setMarcaSelecionada={setMarcaSelecionada}
               setCategoriaSelecionada={setCategoriaSelecionada}
@@ -141,14 +155,19 @@ function App() {
 
                 <div className="lista-cards">
                   {filtrados.length > 0 ? (
-                    filtrados.map((item) => (
-                      <CardLoja
+                    filtrados.map((item, index) => (
+                      <div
                         key={item.id}
-                        {...item}
-                        onClick={() => abrirProduto(item)}
-                        isFavorito={favoritos.includes(item.id)}
-                        toggleFavorito={toggleFavorito}
-                      />
+                        data-aos="zoom-in-up"
+                        data-aos-delay={index * 100}
+                      >
+                        <CardLoja
+                          {...item}
+                          onClick={() => abrirProduto(item)}
+                          isFavorito={favoritos.includes(item.id)}
+                          toggleFavorito={toggleFavorito}
+                        />
+                      </div>
                     ))
                   ) : (
                     <p className="sem-produto">Nenhum produto encontrado</p>
@@ -165,10 +184,22 @@ function App() {
                 </h1>
 
                 {[
-                  { titulo: "OLYMPIKUS", lista: catalogo_corre },
-                  { titulo: "ADIDAS", lista: catalogo_adzero },
-                  { titulo: "NIKE", lista: catalogo_nike },
-                  { titulo: "MIZUNO", lista: catalogo_mizuno },
+                  {
+                    titulo: "OLYMPIKUS",
+                    lista: catalogo_corre,
+                  },
+                  {
+                    titulo: "ADIDAS",
+                    lista: catalogo_adzero,
+                  },
+                  {
+                    titulo: "NIKE",
+                    lista: catalogo_nike,
+                  },
+                  {
+                    titulo: "MIZUNO",
+                    lista: catalogo_mizuno,
+                  },
                   {
                     titulo: "ACADEMIA",
                     lista: catalogo_academia,
@@ -194,14 +225,19 @@ function App() {
                     <h1 className="titulo-produtos">{secao.titulo}</h1>
 
                     <div className="lista-cards">
-                      {secao.lista.map((item) => (
-                        <CardLoja
+                      {secao.lista.map((item, index) => (
+                        <div
                           key={item.id}
-                          {...item}
-                          onClick={() => abrirProduto(item)}
-                          isFavorito={favoritos.includes(item.id)}
-                          toggleFavorito={toggleFavorito}
-                        />
+                          data-aos="fade-up"
+                          data-aos-delay={index * 100}
+                        >
+                          <CardLoja
+                            {...item}
+                            onClick={() => abrirProduto(item)}
+                            isFavorito={favoritos.includes(item.id)}
+                            toggleFavorito={toggleFavorito}
+                          />
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -219,7 +255,9 @@ function App() {
                   />
 
                   <h2>{produtoSelecionado.title}</h2>
+
                   <p>{produtoSelecionado.category}</p>
+
                   <p>R$ {produtoSelecionado.price}</p>
 
                   {produtoSelecionado.tam && (
@@ -241,7 +279,13 @@ function App() {
                       </div>
 
                       {!tamanhoSelecionado && (
-                        <p style={{ color: "red" }}>Selecione um tamanho</p>
+                        <p
+                          style={{
+                            color: "red",
+                          }}
+                        >
+                          Selecione um tamanho
+                        </p>
                       )}
                     </>
                   )}
@@ -252,6 +296,7 @@ function App() {
                     disabled={produtoSelecionado.tam && !tamanhoSelecionado}
                   >
                     <p>Adicionar ao carrinho</p>
+
                     <ShoppingCart size={14} />
                   </button>
 

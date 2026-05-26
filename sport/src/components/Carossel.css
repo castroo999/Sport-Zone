@@ -1,47 +1,28 @@
-.carrossel {
-  width: 90%;
-  margin: 100px auto;
+.container-banner {
+  width: 100%;
+  padding: 20px;
+}
+
+.banner {
+  width: 100%;
+  height: 420px;
+  border-radius: 20px;
   overflow: hidden;
-  border-radius: 10px;
+  background: #111;
 }
 
-
-.grupo {
-  display: flex;
-  gap: 15px;
-  animation: giro 40s linear infinite;
-}
-
-
-.card {
-  flex: 0 0 220px;   
-  height: 220px;     
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.card img {
+.banner img {
   width: 100%;
   height: 100%;
-  object-fit: contain; 
-  display: block;
-  transition: transform 0.3s;
+  object-fit: cover;
 }
 
-.card:hover img {
-  transform: scale(1.1);
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+  scale: 0.7;
 }
 
-@keyframes giro {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+.swiper-pagination-bullet {
+  background: white;
 }

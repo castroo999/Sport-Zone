@@ -1,35 +1,85 @@
 .footer {
   width: 100%;
-  padding: 10px 20px;
-  background: #0a0a0a;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #000000;
+  border-top: 1px solid #1a1a1a;
+  padding: 40px 20px 20px 20px;
+  font-family: sans-serif;
 }
 
-.contato {
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-brand h2 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.footer-brand h2 span {
+  color: #9C4DFF;
+}
+
+.footer-brand p {
+  color: #666;
+  font-size: 14px;
+}
+
+.footer-column {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  min-width: 200px;
+}
+
+.footer-column h3 {
+  color: #9C4DFF;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.footer-link {
+  display: flex;
   align-items: center;
   gap: 10px;
+  color: #888;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-
-.contato h2 {
-  color: #9C4DFF;
-  font-size: 28px;
+.footer-link:hover {
+  color: #fff;
+  transform: translateY(-2px);
 }
 
-.contato span {
-  display: flex;
-  align-items: center; 
-  gap: 10px; 
-  font-size: 16px;
-  color: #ccc;
+.footer-link.instagram-hover:hover {
+  color: #f7507e;
 }
 
-.contato span:hover{
-    transform: translateX(5px);
-    color:#fff
+.footer-link.whatsapp-hover:hover {
+  color: #25d366;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 40px auto 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #1a1a1a;
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #444;
+  font-size: 12px;
 }

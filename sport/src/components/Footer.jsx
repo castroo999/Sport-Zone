@@ -1,28 +1,50 @@
 import "./Footer.css";
-import { FaInstagram } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <div className="footer">
-      <div className="contato">
-        <h2>Entre em contatro aqui:</h2>
-        <span>
-          <MdEmail size={30} color="white"/>
-          VSTR@gmail.com
-        </span> 
-        <span>
-          <MdEmail size={30} color="white"/>
-          SportZone@gmail.com
-        </span>
-        <span>
-          <FaInstagram size={30} color="deeppink" /> Instagram: @Sport_Zone
-        </span>
-        <span>
-          <FaWhatsapp size={30} color="green" /> Tel: (55) 15996485913
-        </span>
+    <footer className="footer">
+      <div className="footer-container">
+        
+        
+        <div className="footer-brand">
+          <h2>Sport<span>Zone</span></h2>
+          <p>Eleve seu jogo. Supere seus limites.</p>
+        </div>
+
+        
+        <div className="footer-column">
+          <h3>Atendimento</h3>
+          <a href="mailto:SportZone@gmail.com" className="footer-link">
+            <MdEmail size={20} />
+            SportZone@gmail.com
+          </a>
+          <a href="mailto:VSTR@gmail.com" className="footer-link">
+            <MdEmail size={20} />
+            VSTR@gmail.com
+          </a>
+        </div>
+
+        
+        <div className="footer-column">
+          <h3>Conecte-se</h3>
+          <a href="https://instagram.com/Sport_Zone" target="_blank" rel="noreferrer" className="footer-link instagram-hover">
+            <FaInstagram size={20} />
+            @Sport_Zone
+          </a>
+          <a href="https://wa.me/5515996485913" target="_blank" rel="noreferrer" className="footer-link whatsapp-hover">
+            <FaWhatsapp size={20} />
+            (15) 99648-5913
+          </a>
+        </div>
+
       </div>
-    </div>
+      
+      
+      <div className="footer-bottom">
+        <p>&copy; 2026 SportZone. Todos os direitos reservados.</p>
+      </div>
+    </footer>
   );
 }
