@@ -148,7 +148,7 @@ export const catalogo_esportes = [
     { id: 52, title: "Camisa Seleção Alemã", price: 250.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: alemanha },
     { id: 53, title: "Camisa Seleção França", price: 250.00, tam: ["P", "M", "G", "GG"], marca: "Nike", category: "Esportes", banner: franca },
     { id: 54, title: "Camisa Barcelona", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Nike", category: "Esportes", banner: barça },
-    { id: 55, title: "Camisa Arsenal", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: arsenal },
+    { id: 55, title: "Camisa Bayern", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: arsenal },
     { id: 56, title: "Camisa Flamengo", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Adidas", category: "Esportes", banner: fla },
     { id: 57, title: "Camisa Lazio", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Mizuno", category: "Esportes", banner: lazio },
     { id: 58, title: "Camisa Inter de Milão", price: 150.00, tam: ["P", "M", "G", "GG"], marca: "Nike", category: "Esportes", banner: milao },
