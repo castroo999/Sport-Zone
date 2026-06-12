@@ -16,11 +16,11 @@ export default function Footer() {
         
         <div className="footer-column">
           <h3>Atendimento</h3>
-          <a href="mailto:SportZone@gmail.com" className="footer-link">
+          <a href="" className="footer-link">
             <MdEmail size={20} />
             SportZone@gmail.com
           </a>
-          <a href="mailto:VSTR@gmail.com" className="footer-link">
+          <a href="" className="footer-link">
             <MdEmail size={20} />
             VSTR@gmail.com
           </a>

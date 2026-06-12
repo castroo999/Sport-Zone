@@ -9,6 +9,7 @@ body{
   flex-wrap: wrap;
   justify-content: center;
   margin: 30px auto;
+  background: transparent;
   
 }
 
