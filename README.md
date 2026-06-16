@@ -42,20 +42,28 @@ Preview
 
 <p align="center"> <img src="./sport/src/assets/screenshots/img1.png" width="800"/> </p>
 
-CATALOGO
+<p align="center"> <img src="./sport/src/assets/screenshots/img2.png" width="700"/> </p>
 
 <p align="center"> <img src="./sport/src/assets/screenshots/img3.png" width="700"/> </p>
 
 <p align="center"> <img src="./sport/src/assets/screenshots/img4.png" width="700"/> </p>
 
-<p align="center"> <img src="./sport/src/assets/screenshots/img2.png" width="700"/> </p>
+<p align="center"> <img src="./sport/src/assets/screenshots/img5.png" width="700"/> </p>
+
+<p align="center"> <img src="./sport/src/assets/screenshots/img6.png" width="700"/> </p>
+
+<p align="center"> <img src="./sport/src/assets/screenshots/img7.png" width="700"/> </p>
+
+<p align="center"> <img src="./sport/src/assets/screenshots/img8.png" width="700"/> </p>
 
 <p align="center"> <img src="./sport/src/assets/screenshots/carrinho.png" width="700"/> </p>
+
+<p align="center"> <img src="./sport/src/assets/screenshots/desejo.png" width="700"/> </p>
 
 
 
 Status do projeto:
-Em desenvolvimento
+Completo
 
 Autor:
 Desenvolvido por Gustavo Castro 🚀
