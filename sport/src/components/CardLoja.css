@@ -100,3 +100,43 @@
 .btn-fav:hover {
   transform: scale(1.1);
 }
+
+.avaliacao {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  color: #ffc107;
+}
+
+.avaliacao span {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.mais-vendido-container {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+}
+
+.desconto{
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #ffc107;
+  color: #000;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.desconto span{
+  color: #000;
+}

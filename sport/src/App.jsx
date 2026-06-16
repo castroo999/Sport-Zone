@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import Modal from "./components/Modal";
 import Footer from "./components/Footer";
 import Carrinho from "./pages/Carrinho";
 import Marcas from "./components/Marcas";
@@ -183,6 +183,7 @@ function App() {
                         >
                           <CardLoja
                             {...item}
+                            mais_vendido={item.mais_vendido}
                             onClick={() => abrirProduto(item)}
                             isFavorito={favoritos.includes(item.id)}
                             toggleFavorito={toggleFavorito}
@@ -265,66 +266,14 @@ function App() {
                 </>
               )}
 
-              {/* MODAL */}
               {produtoSelecionado && (
-                <div className="overlay">
-                  <div className="modal">
-                    <img
-                      src={produtoSelecionado.banner}
-                      alt={produtoSelecionado.title}
-                    />
-
-                    <h2>{produtoSelecionado.title}</h2>
-
-                    <p>{produtoSelecionado.category}</p>
-
-                    <p>R$ {produtoSelecionado.price}</p>
-
-                    {produtoSelecionado.tam && (
-                      <>
-                        <p>Selecione o tamanho</p>
-
-                        <div className="tamanhos">
-                          {produtoSelecionado.tam.map((tamanho) => (
-                            <button
-                              key={tamanho}
-                              onClick={() => setTamanhoSelecionado(tamanho)}
-                              className={`tamanho ${
-                                tamanhoSelecionado === tamanho ? "ativo" : ""
-                              }`}
-                            >
-                              {tamanho}
-                            </button>
-                          ))}
-                        </div>
-
-                        {!tamanhoSelecionado && (
-                          <p
-                            style={{
-                              color: "red",
-                            }}
-                          >
-                            Selecione um tamanho
-                          </p>
-                        )}
-                      </>
-                    )}
-
-                    <button
-                      className="add"
-                      onClick={adcionarAoCarrinho}
-                      disabled={produtoSelecionado.tam && !tamanhoSelecionado}
-                    >
-                      <p>Adicionar ao carrinho</p>
-
-                      <ShoppingCart size={14} />
-                    </button>
-
-                    <button className="btn-limpar" onClick={limparProdutos}>
-                      Fechar
-                    </button>
-                  </div>
-                </div>
+                <Modal
+                  produto={produtoSelecionado}
+                  tamanhoSelecionado={tamanhoSelecionado}
+                  setTamanhoSelecionado={setTamanhoSelecionado}
+                  adcionarAoCarrinho={adcionarAoCarrinho}
+                  limparProdutos={limparProdutos}
+                />
               )}
 
               <Footer />
