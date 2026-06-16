@@ -2,6 +2,8 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { useState, useEffect } from "react";
+import { ToastContainer, toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -74,12 +76,24 @@ function App() {
   ];
 
   const toggleFavorito = (id) => {
+    const jaExiste = favoritos.includes(id);
+
     setFavoritos((prev) =>
-      prev.includes(id) ? prev.filter((fav) => fav !== id) : [...prev, id],
+      jaExiste ? prev.filter((fav) => fav !== id) : [...prev, id],
     );
+
+    if (jaExiste) {
+      toast.info("Removido dos favoritos ");
+    } else {
+      toast.success("Adicionado aos favoritos ");
+    }
   };
 
-  const limparCarrinho = () => setCarrinho([]);
+  const limparCarrinho = () => {
+    setCarrinho([]);
+
+    toast.warning("Carrinho esvaziado ");
+  };
 
   const abrirProduto = (item) => {
     setProdutoSelecionado(item);
@@ -95,11 +109,16 @@ function App() {
     };
 
     setCarrinho([...carrinho, produtoFinal]);
+
+    toast.success("Produto adicionado ao carrinho ");
+
     setProdutoSelecionado(null);
   };
 
   const removerItem = (id) => {
     setCarrinho(carrinho.filter((item) => item.id !== id));
+
+    toast.error("Produto removido do carrinho ");
   };
 
   // FILTRO
@@ -124,111 +143,42 @@ function App() {
   };
 
   return (
-    <Routes>
-      {/* HOME */}
-      <Route
-        path="/"
-        element={
-          <div className="app">
-            <Header setBusca={setBusca} />
+    <>
+      <Routes>
+        {/* HOME */}
+        <Route
+          path="/"
+          element={
+            <div className="app">
+              <Header setBusca={setBusca} />
 
-            <Carossel />
+              <Carossel />
 
-            <h2 className="titulo-secao">NAVEGUE POR MARCAS</h2>
+              <h2 className="titulo-secao">NAVEGUE POR MARCAS</h2>
 
-            <Marcas
-              setMarcaSelecionada={setMarcaSelecionada}
-              setCategoriaSelecionada={setCategoriaSelecionada}
-            />
+              <Marcas
+                setMarcaSelecionada={setMarcaSelecionada}
+                setCategoriaSelecionada={setCategoriaSelecionada}
+              />
 
-            {/* BOTÃO LIMPAR */}
-            {(busca || marcaSelecionada || categoriaSelecionada) && (
-              <button className="btn-limpar" onClick={limparFiltros}>
-                Limpar filtros
-              </button>
-            )}
+              {/* BOTÃO LIMPAR */}
+              {(busca || marcaSelecionada || categoriaSelecionada) && (
+                <button className="btn-limpar" onClick={limparFiltros}>
+                  Limpar filtros
+                </button>
+              )}
 
-            {/* RESULTADO FILTRADO */}
-            {(busca || marcaSelecionada || categoriaSelecionada) && (
-              <>
-                <h1 className="titulo-produtos">Produtos</h1>
+              {/* RESULTADO FILTRADO */}
+              {(busca || marcaSelecionada || categoriaSelecionada) && (
+                <>
+                  <h1 className="titulo-produtos">Produtos</h1>
 
-                <div className="lista-cards">
-                  {filtrados.length > 0 ? (
-                    filtrados.map((item, index) => (
-                      <div
-                        key={item.id}
-                        data-aos="zoom-in-up"
-                        data-aos-delay={index * 100}
-                      >
-                        <CardLoja
-                          {...item}
-                          onClick={() => abrirProduto(item)}
-                          isFavorito={favoritos.includes(item.id)}
-                          toggleFavorito={toggleFavorito}
-                        />
-                      </div>
-                    ))
-                  ) : (
-                    <p className="sem-produto">Nenhum produto encontrado</p>
-                  )}
-                </div>
-              </>
-            )}
-
-            {/* CATÁLOGO */}
-            {!busca && !marcaSelecionada && !categoriaSelecionada && (
-              <>
-                <h1 className="titulo" id="Catalogo">
-                  CATÁLOGO
-                </h1>
-
-                {[
-                  {
-                    titulo: "OLYMPIKUS",
-                    lista: catalogo_corre,
-                  },
-                  {
-                    titulo: "ADIDAS",
-                    lista: catalogo_adzero,
-                  },
-                  {
-                    titulo: "NIKE",
-                    lista: catalogo_nike,
-                  },
-                  {
-                    titulo: "MIZUNO",
-                    lista: catalogo_mizuno,
-                  },
-                  {
-                    titulo: "ACADEMIA",
-                    lista: catalogo_academia,
-                    id: "Academia",
-                  },
-                  {
-                    titulo: "MODA CASUAL MASCULINA",
-                    lista: catalogo_moda,
-                    id: "Moda Casual",
-                  },
-                  {
-                    titulo: "MODA CASUAL FEMININA",
-                    lista: catalogo_modaFem,
-                    id: "Moda Casual",
-                  },
-                  {
-                    titulo: "ESPORTES",
-                    lista: catalogo_esportes,
-                    id: "Esportes",
-                  },
-                ].map((secao, index) => (
-                  <div key={index} id={secao.id || ""}>
-                    <h1 className="titulo-produtos">{secao.titulo}</h1>
-
-                    <div className="lista-cards">
-                      {secao.lista.map((item, index) => (
+                  <div className="lista-cards">
+                    {filtrados.length > 0 ? (
+                      filtrados.map((item, index) => (
                         <div
                           key={item.id}
-                          data-aos="fade-up"
+                          data-aos="zoom-in-up"
                           data-aos-delay={index * 100}
                         >
                           <CardLoja
@@ -238,112 +188,193 @@ function App() {
                             toggleFavorito={toggleFavorito}
                           />
                         </div>
-                      ))}
-                    </div>
+                      ))
+                    ) : (
+                      <p className="sem-produto">Nenhum produto encontrado</p>
+                    )}
                   </div>
-                ))}
-              </>
-            )}
+                </>
+              )}
 
-            {/* MODAL */}
-            {produtoSelecionado && (
-              <div className="overlay">
-                <div className="modal">
-                  <img
-                    src={produtoSelecionado.banner}
-                    alt={produtoSelecionado.title}
-                  />
+              {/* CATÁLOGO */}
+              {!busca && !marcaSelecionada && !categoriaSelecionada && (
+                <>
+                  <h1 className="titulo" id="Catalogo">
+                    CATÁLOGO
+                  </h1>
 
-                  <h2>{produtoSelecionado.title}</h2>
+                  {[
+                    {
+                      titulo: "OLYMPIKUS",
+                      lista: catalogo_corre,
+                    },
+                    {
+                      titulo: "ADIDAS",
+                      lista: catalogo_adzero,
+                    },
+                    {
+                      titulo: "NIKE",
+                      lista: catalogo_nike,
+                    },
+                    {
+                      titulo: "MIZUNO",
+                      lista: catalogo_mizuno,
+                    },
+                    {
+                      titulo: "ACADEMIA",
+                      lista: catalogo_academia,
+                      id: "Academia",
+                    },
+                    {
+                      titulo: "MODA CASUAL MASCULINA",
+                      lista: catalogo_moda,
+                      id: "Moda Casual",
+                    },
+                    {
+                      titulo: "MODA CASUAL FEMININA",
+                      lista: catalogo_modaFem,
+                      id: "Moda Casual",
+                    },
+                    {
+                      titulo: "ESPORTES",
+                      lista: catalogo_esportes,
+                      id: "Esportes",
+                    },
+                  ].map((secao, index) => (
+                    <div key={index} id={secao.id || ""}>
+                      <h1 className="titulo-produtos">{secao.titulo}</h1>
 
-                  <p>{produtoSelecionado.category}</p>
-
-                  <p>R$ {produtoSelecionado.price}</p>
-
-                  {produtoSelecionado.tam && (
-                    <>
-                      <p>Selecione o tamanho</p>
-
-                      <div className="tamanhos">
-                        {produtoSelecionado.tam.map((tamanho) => (
-                          <button
-                            key={tamanho}
-                            onClick={() => setTamanhoSelecionado(tamanho)}
-                            className={`tamanho ${
-                              tamanhoSelecionado === tamanho ? "ativo" : ""
-                            }`}
+                      <div className="lista-cards">
+                        {secao.lista.map((item, index) => (
+                          <div
+                            key={item.id}
+                            data-aos="fade-up"
+                            data-aos-delay={index * 100}
                           >
-                            {tamanho}
-                          </button>
+                            <CardLoja
+                              {...item}
+                              onClick={() => abrirProduto(item)}
+                              isFavorito={favoritos.includes(item.id)}
+                              toggleFavorito={toggleFavorito}
+                            />
+                          </div>
                         ))}
                       </div>
+                    </div>
+                  ))}
+                </>
+              )}
 
-                      {!tamanhoSelecionado && (
-                        <p
-                          style={{
-                            color: "red",
-                          }}
-                        >
-                          Selecione um tamanho
-                        </p>
-                      )}
-                    </>
-                  )}
+              {/* MODAL */}
+              {produtoSelecionado && (
+                <div className="overlay">
+                  <div className="modal">
+                    <img
+                      src={produtoSelecionado.banner}
+                      alt={produtoSelecionado.title}
+                    />
 
-                  <button
-                    className="add"
-                    onClick={adcionarAoCarrinho}
-                    disabled={produtoSelecionado.tam && !tamanhoSelecionado}
-                  >
-                    <p>Adicionar ao carrinho</p>
+                    <h2>{produtoSelecionado.title}</h2>
 
-                    <ShoppingCart size={14} />
-                  </button>
+                    <p>{produtoSelecionado.category}</p>
 
-                  <button className="btn-limpar" onClick={limparProdutos}>
-                    Fechar
-                  </button>
+                    <p>R$ {produtoSelecionado.price}</p>
+
+                    {produtoSelecionado.tam && (
+                      <>
+                        <p>Selecione o tamanho</p>
+
+                        <div className="tamanhos">
+                          {produtoSelecionado.tam.map((tamanho) => (
+                            <button
+                              key={tamanho}
+                              onClick={() => setTamanhoSelecionado(tamanho)}
+                              className={`tamanho ${
+                                tamanhoSelecionado === tamanho ? "ativo" : ""
+                              }`}
+                            >
+                              {tamanho}
+                            </button>
+                          ))}
+                        </div>
+
+                        {!tamanhoSelecionado && (
+                          <p
+                            style={{
+                              color: "red",
+                            }}
+                          >
+                            Selecione um tamanho
+                          </p>
+                        )}
+                      </>
+                    )}
+
+                    <button
+                      className="add"
+                      onClick={adcionarAoCarrinho}
+                      disabled={produtoSelecionado.tam && !tamanhoSelecionado}
+                    >
+                      <p>Adicionar ao carrinho</p>
+
+                      <ShoppingCart size={14} />
+                    </button>
+
+                    <button className="btn-limpar" onClick={limparProdutos}>
+                      Fechar
+                    </button>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            <Footer />
-          </div>
-        }
-      />
+              <Footer />
+            </div>
+          }
+        />
 
-      {/* CARRINHO */}
-      <Route
-        path="/carrinho"
-        element={
-          <div className="app">
-            <Header setBusca={setBusca} />
+        {/* CARRINHO */}
+        <Route
+          path="/carrinho"
+          element={
+            <div className="app">
+              <Header setBusca={setBusca} />
 
-            <Carrinho
+              <Carrinho
+                carrinho={carrinho}
+                removerItem={removerItem}
+                limparCarrinho={limparCarrinho}
+              />
+            </div>
+          }
+        />
+
+        {/* FAVORITOS */}
+        <Route
+          path="/favoritos"
+          element={
+            <Lista
+              favoritos={favoritos}
+              todosProdutos={todosProdutos}
+              toggleFavorito={toggleFavorito}
+              abrirProduto={abrirProduto}
+              setBusca={setBusca}
               carrinho={carrinho}
-              removerItem={removerItem}
-              limparCarrinho={limparCarrinho}
+              setCarrinho={setCarrinho}
             />
-          </div>
-        }
+          }
+        />
+      </Routes>
+      <ToastContainer
+        position="top-left"
+        autoClose={2500}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="dark"
+        transition={Zoom}
       />
-
-      {/* FAVORITOS */}
-      <Route
-        path="/favoritos"
-        element={
-          <Lista
-            favoritos={favoritos}
-            todosProdutos={todosProdutos}
-            toggleFavorito={toggleFavorito}
-            abrirProduto={abrirProduto}
-            setBusca={setBusca}
-            carrinho={carrinho}
-            setCarrinho={setCarrinho}
-          />
-        }
-      />
-    </Routes>
+    </>
   );
 }
 
