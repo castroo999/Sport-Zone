@@ -1,69 +1,143 @@
- Sport Zone
+# 🏆 Sport Zone
 
-Um e-commerce de produtos esportivos desenvolvido com React.
+Um e-commerce de produtos esportivos desenvolvido com React, focado em proporcionar uma experiência moderna e intuitiva para usuários que desejam navegar por produtos, adicioná-los ao carrinho e gerenciar sua lista de desejos.
 
- Sobre o projeto
+## 🚀 Funcionalidades
 
-O Sport Zone é uma aplicação web que simula uma loja online de produtos esportivos, permitindo ao usuário navegar pelos produtos, filtrar por marca e adicionar itens ao carrinho.
+### 🛍️ Catálogo de Produtos
 
- Funcionalidades
+* Exibição dinâmica de produtos esportivos.
+* Visualização detalhada dos itens.
+* Layout responsivo para desktop e dispositivos móveis.
 
-* Busca de produtos
-*  Filtro por marca
-*  Carrinho de compras
-*  Remover itens do carrinho
-*  Finalizar compra
-*  Persistência com LocalStorage
-*  Interface moderna e responsiva
+### 🔍 Sistema de Busca e Filtros
 
-Tecnologias utilizadas
+* Busca de produtos por nome.
+* Filtro por marcas.
+* Atualização instantânea dos resultados.
+
+### ❤️ Lista de Desejos
+
+* Adicionar produtos aos favoritos.
+* Remover produtos da lista de desejos.
+* Persistência dos dados utilizando LocalStorage.
+
+### 🛒 Carrinho de Compras
+
+* Adicionar produtos ao carrinho.
+* Remover produtos do carrinho.
+* Controle de quantidade.
+* Cálculo automático do valor total da compra.
+* Finalização de compra simulada.
+
+### 💾 Persistência de Dados
+
+* Armazenamento do carrinho utilizando LocalStorage.
+* Armazenamento da lista de desejos.
+* Manutenção dos dados mesmo após atualizar a página.
+
+## 🛠️ Tecnologias Utilizadas
+
+### Frontend
 
 * React
 * JavaScript
 * CSS3
-* React Router
+* React Router DOM
 
-Como rodar o projeto:
+### Ferramentas
+
+* Vite
+* LocalStorage
+* Git & GitHub
+
+## 📸 Demonstração
+
+### Página Inicial
+
+<img src="./sport/src/assets/screenshots/img 1.png" width="800"/>
+
+### Catálogo de Produtos
+
+<img src="./sport/src/assets/screenshots/img 2.png" width="700"/>
+
+### Filtros e Busca
+
+<img src="./sport/src/assets/screenshots/img 3.png" width="700"/>
+
+### Lista de Desejos
+
+<img src="./sport/src/assets/screenshots/desejo.png" width="700"/>
+
+### Carrinho de Compras
+
+<img src="./sport/src/assets/screenshots/carrinho.png" width="700"/>
+
+## 🔧 Como Executar o Projeto
+
+### 1️⃣ Clone o repositório
+
+```bash
+git clone https://github.com/castroo999/Sport-Zone.git
+```
+
+### 2️⃣ Entre na pasta do projeto
+
+```bash
+cd Sport-Zone/sport
+```
+
+### 3️⃣ Instale as dependências
+
+```bash
+npm install
+```
+
+### 4️⃣ Execute o projeto
+
+```bash
+npm run dev
+```
+
+### 5️⃣ Acesse no navegador
+
+```
+http://localhost:5173
+```
+
+## 📂 Estrutura do Projeto
+
+```text
+src/
+├── assets/
+├── components/
+├── context/
+├── pages/
+├── routes/
+├── data/
+└── App.jsx
+```
+
+## 🎯 Objetivos do Projeto
+
+Este projeto foi desenvolvido com o objetivo de praticar:
+
+* Componentização com React.
+* Gerenciamento de estado.
+* React Router.
+* Manipulação de LocalStorage.
+* Organização de projetos Frontend.
+* Boas práticas de desenvolvimento web.
+
+## 📈 Status do Projeto
+
+ Concluído
+
+##  Autor
+
+Desenvolvido por **Gustavo Castro**
+
+* GitHub: https://github.com/castroo999
+* LinkedIn: (https://www.linkedin.com/in/gustavo-castro-ab8216417/)
 
 
- 1- Clone o repositório
-    git clone https://github.com/castroo999/Sport-Zone.git
-
-2- Acesse a pasta
-   cd Sport-Zone/sport
-
-3- Instale as dependências
-   npm install
-
-4- Rode o projeto
-   git npm run dev
-
-Preview
-
-<p align="center"> <img src="./sport/src/assets/screenshots/img 1.png" width="800"/> </p>
-
-<p align="center"> <img src="./sport/src/assets/screenshots/img 2.png" width="700"/> </p>
-
-<p align="center"> <img src="./sport/src/assets/screenshots/img 3.png" width="700"/> </p>
-
-<p align="center"> <img src="./sport/src/assets/screenshots/img 4.png" width="700"/> </p>
-
-<p align="center"> <img src="./sport/src/assets/screenshots/img 5.png" width="700"/> </p>
-
-<p align="center"> <img src="./sport/src/assets/screenshots/img 6.png" width="700"/> </p>
-
-<p align="center"> <img src="./sport/src/assets/screenshots/img 7.png" width="700"/> </p>
-
-<p align="center"> <img src="./sport/src/assets/screenshots/img 8.png" width="700"/> </p>
-
-<p align="center"> <img src="./sport/src/assets/screenshots/carrinho.png" width="700"/> </p>
-
-<p align="center"> <img src="./sport/src/assets/screenshots/desejo.png" width="700"/> </p>
-
-
-
-Status do projeto:
-Completo
-
-Autor:
-Desenvolvido por Gustavo Castro 🚀
